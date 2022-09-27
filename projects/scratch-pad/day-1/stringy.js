@@ -15,7 +15,7 @@
 function length(string) {
     // YOUR CODE BELOW HERE //
     
-    // return the length of the input string
+    // return input string's length
     return string.length;
 
     // YOUR CODE ABOVE HERE //
@@ -27,7 +27,7 @@ function length(string) {
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
 
-    
+
 
     // YOUR CODE ABOVE HERE //
 }
@@ -76,7 +76,7 @@ function toDashCase(string) {
  * TIP: How can you use Array access to your advantage here? How can you
  *      ensure uppercase and lowercase can be compared equally?
  */
-function beginsWith(string, char) {
+function beginsWith(string, char) { // must be case insensitive
     // YOUR CODE BELOW HERE //
 
     
@@ -96,7 +96,7 @@ function beginsWith(string, char) {
  * TIP: How can you use Array access to your advantage here? How can you
  *      ensure uppercase and lowercase can be compared equally?
  */
-function endsWith(string, char) {
+function endsWith(string, char) { // must be case insensitive
     // YOUR CODE BELOW HERE //
 
 
