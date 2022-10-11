@@ -14,7 +14,10 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    // return a function that tests whether a value is greater than the base parameter
+    return function(value){
+       return value > base;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -38,10 +41,15 @@ function createLessThanFilter(base) {
  * Given a startsWith character, which will be a single character, return a 
  * Function that tests whether a given String starts with the startsWith 
  * character.
+ * 
+ * Needs to be case insensitive!
  */
-function createStartsWithFilter(startsWith) {
+function createStartsWithFilter(startsWith) { // 'a'
     // YOUR CODE BELOW HERE //
     
+    return function(string){ // 'Alex'
+        // return true if the string 'starts with' the startsWith character
+    }
     
     
     
@@ -69,7 +77,7 @@ function createEndsWithFilter(endsWith) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
-function modifyStrings(strings, modify) {
+function modifyStrings(strings, modify) { // modify is a function that will 'modify' a single string
     // YOUR CODE BELOW HERE //
     
     
@@ -87,14 +95,17 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
-function allStringsPass(strings, test) {
+function allStringsPass(strings, test) { // test is a function that will 'test' a single string
     // YOUR CODE BELOW HERE //
     
+    console.log(strings);
     
     
     
     // YOUR CODE ABOVE HERE //
 }
+
+allStringsPass(['a', 'b'], function(){ console.log('hey')});
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&

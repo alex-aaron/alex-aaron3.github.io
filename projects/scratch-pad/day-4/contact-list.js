@@ -34,22 +34,30 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
+function makeContact(id, nameFirst, nameLast) { // FACTORY FUNCTION
+    var obj = {};
 
+    
+    return obj; // {id: ??, nameFirst: 'Alex', nameLast: 'Aaron'}
 } 
 
 
-function makeContactList() {
+function makeContactList() { // FACTORY FUNCTION
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        addContact: function(contact){
+            contacts.push(contact);
         }
+         
+
     }
 }
 

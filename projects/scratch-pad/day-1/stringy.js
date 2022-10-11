@@ -162,6 +162,18 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    var string1 = stringOne.toLowerCase();
+    var string2 = stringTwo.toLowerCase();
+    // there should be a if statement to test which is hidher vs which is lower and the else being the 0 
+    if(string1 < string2){
+      return 1;
+    }
+else if(string2 < string1){
+  return -1;
+}    
+    else{
+      return 0;
+    }
 
 
     // YOUR CODE ABOVE HERE //
