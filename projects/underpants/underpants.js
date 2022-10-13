@@ -185,6 +185,19 @@ _.each = function(collection, func){
 *   use _.each in your implementation
 */
 
+_.filter = function(array, func){
+    // create output = [];
+    let output = [];
+
+    for (let i = 0; i < array.length; i++){
+        if (func(array[i], i, array)){
+            output.push(array[i]);
+        }
+    }
+
+    return output;
+}
+
 
 /** _.reject
 * Arguments:
@@ -249,6 +262,8 @@ _.each = function(collection, func){
 */
 
 
+
+
 /** _.every
 * Arguments:
 *   1) A collection
@@ -269,6 +284,51 @@ _.each = function(collection, func){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+
+_.every = function(collection, func){
+    // determine if func is not provided
+    if (func === undefined){
+        // determine if collection is an array
+        if (Array.isArray(collection)){
+            // iterate
+            for (let i = 0; i < collection.length; i++){
+                if (!collection[i]){ // determines if collection[i] is a falsey dataype
+                    return false;
+                }
+            }
+        } else {
+            for (let key in collection){
+                if (!collection[key]){
+                    return false;
+                }
+            }
+        }
+    } else { // else func was provided
+        // determine if collection is an array
+        if (Array.isArray(collection)){
+            // iterate through collection
+            for (let i = 0; i < collection.length; i++){
+                // what am I determining?
+                if (func(collection[i], i, collection) === false){
+                    return false;
+                }
+            }
+        } else {
+            // iterate through object
+            for (let key in collection){
+                if (func(collection[key], key, collection) === false){
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+ 
+
+_.every([1, 2, 3, 4], function(num){
+    return num > 0
+});
 
 
 /** _.some
@@ -313,6 +373,28 @@ _.each = function(collection, func){
 */
 
 
+_.reduce = function(array, func, seed){
+    // create result variable
+    let result;
+    // determine if seed didn't receive a value
+    if (seed === undefined){ 
+        result = array[0];
+        // iterate through array starting at 1 index
+        for (let i = 1; i < array.length; i++){
+            result = func(result, array[i], i, array);
+        }
+    } else {
+        result = seed;
+        // iterate through array
+        for (let i = 0; i < array.length; i++){
+            // reassign result to the the result of invoking callback function
+            result = func(result, array[i], i, array);
+        }
+    }
+    return result;
+}
+
+
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -327,6 +409,20 @@ _.each = function(collection, func){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(object1, ...moreObjects){
+    for (let i = 0; i < moreObjects.length; i++) {
+
+        object1 = {
+           ...object1,
+           ...moreObjects[i]
+           };
+       }
+     console.log(object1);
+     return object1;
+}
+
+console.log(_.extend({a: 'one', b: 'two'}, {c: 'three', d: 'four'}));
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
