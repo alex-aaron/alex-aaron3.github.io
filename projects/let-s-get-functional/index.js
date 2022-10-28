@@ -30,7 +30,28 @@ var maleCount = function(array) {
     return males.length;
 };
 
-maleCount(customers);
+var maleCount = function(array){
+    // use reduce to return array of only the male customers
+    let males = _.reduce(array, function(acc, current){
+        if (current.gender === 'male'){
+            acc.push(current);
+        }
+
+        return acc; 
+    }, []);
+}
+
+/*
+// invoke reduce
+    // result = []
+    // for loop
+        // 0
+            // result = func([], {customer}, 0, [...])
+
+
+
+*/
+
 
 var femaleCount = function(array){
     // implement _.reduce() to return number of female customers
@@ -46,9 +67,73 @@ var femaleCount = function(array){
 
 
 
-var oldestCustomer;
+var oldestCustomer = function(array){
+    // use reduce to find oldest customer
+    var oldest = _.reduce(array, function(acc, current, index, array){
+        if (current.age > acc.age){ // if 45 > 24
+            acc = current.name
+        } 
+        console.log(acc);
+        return acc;
+    });
 
-var youngestCustomer;
+    return oldest.name;
+};
+
+oldestCustomer(customers);
+
+/*
+// invoke reduce
+    // seed or no seed | result = {customer1}
+
+    // for loop
+        // 1
+            // result = { age: 33 }
+        // 2 
+            // result = { age: 45 }
+        // 3
+            // result = { age: 45 }
+
+    // return { age: 45 }
+
+*/
+
+
+
+
+
+
+
+
+
+
+var youngestCustomer = function(array){
+    let youngAge = _.reduce(array, function(acc, current){
+        if (current.age < acc.age){
+            return current;
+        }
+        return acc;
+    }, []);
+    return youngAge.age;
+};
+
+
+
+/* seed
+// invoke reduce
+    // for loop
+        // 0
+            // result = func([], {customer}, 0, [...])
+*/
+
+/* no seed
+// invoke reduce
+    // for loop
+        // 1
+            // result = func({customer 0}, {customer1}, 1, [...])
+*/
+
+// youngestCustomer(customers);
 
 var averageBalance;
 

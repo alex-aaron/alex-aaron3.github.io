@@ -2,6 +2,8 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
+// const { characterScript } = require("./helpers");
+
 function flatten() {
 
 }
@@ -26,8 +28,20 @@ function every() {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(string) { // "Hello!"
+  // create two arrays to store rtl values and ltr values
+  let ltr = 0;
+  let rtl = 0;
+  // iterate through string
+  for (let i = 0; i < string.length; i++){
+    let code = string.charCodeAt(i);
+    let script = characterScript(code); // { script } | null
 
+    if (script !== null){
+     script.direction === 'ltr' ? ltr += 1 : rtl += 1;
+    }
+  }
+  return ltr > rtl ? 'ltr' : 'rtl';
 }
 
 // /////////////////////////////////////////////////////////////////////////////

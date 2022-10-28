@@ -46,13 +46,14 @@ function isObject(value) { //  -> collection of key/value pairs
  * 
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
-function isCollection(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+ function isCollection(value) {
+    //YOUR CODE BELOW HERE //
+    if (Array.isArray(value) === true || typeof value === 'object' && value !== "null" && value instanceof Date === false){
+        return true;
+    } else {
+        return false;
+    }
+    // // YOUR CODE ABOVE HERE //
 }
 
 /**
