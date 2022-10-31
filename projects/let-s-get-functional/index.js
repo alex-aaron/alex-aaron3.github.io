@@ -100,13 +100,6 @@ oldestCustomer(customers);
 
 
 
-
-
-
-
-
-
-
 var youngestCustomer = function(array){
     let youngAge = _.reduce(array, function(acc, current){
         if (current.age < acc.age){
@@ -137,7 +130,15 @@ var youngestCustomer = function(array){
 
 var averageBalance;
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter){
+    return _.filter(array, function(customer){
+        if (customer.name[0].toUpperCase() === letter.toUpperCase()){
+            return true;
+        } else {
+            return false;
+        }
+    });
+};
 
 var friendFirstLetterCount;
 
