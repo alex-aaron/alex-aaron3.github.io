@@ -137,10 +137,21 @@ var firstLetterCount = function(array, letter){
         } else {
             return false;
         }
-    });
+    }).length;
 };
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter){
+    let friends;
+    for (let i = 0; i < array.length; i++){
+        if (array[i].name === customer.name){
+            friends = _filter(array[i].friends, function(friend){
+                if (friend.name[0].toUpperCase() === letter.toUpperCase()){
+                    return true;
+                }
+            });
+        }
+    }
+};
 
 var friendsCount;
 
