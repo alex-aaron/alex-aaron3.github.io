@@ -38,7 +38,7 @@ function toLowerCase(string) {
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
 
-
+    return string.toUpperCase();
 
     // YOUR CODE ABOVE HERE //
 }
