@@ -103,6 +103,7 @@ function beginsWith(string, char) { // must be case insensitive
 function endsWith(string, char) { // must be case insensitive
     // YOUR CODE BELOW HERE //
 
+    return string[string.length -1 ].toLowerCase() === char.toLowerCase();
 
 
     // YOUR CODE ABOVE HERE //
