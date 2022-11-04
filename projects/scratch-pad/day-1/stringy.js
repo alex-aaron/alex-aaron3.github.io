@@ -79,7 +79,11 @@ function toDashCase(string) {
 function beginsWith(string, char) { // must be case insensitive
     // YOUR CODE BELOW HERE //
 
-    
+    if (string[0].toUpperCase() === char.toUpperCase()){
+        return true;
+    } else {
+        return false;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
